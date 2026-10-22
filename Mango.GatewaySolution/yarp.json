@@ -1,0 +1,30 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "product-read": {
+        "ClusterId": "products",
+        "Match": {
+          "Path": "/api/products/{**catch-all}",
+          "Methods": [ "GET" ]
+        }
+      },
+      "product-write": {
+        "ClusterId": "products",
+        "AuthorizationPolicy": "default",
+        "Match": {
+          "Path": "/api/products/{**catch-all}",
+          "Methods": [ "POST", "PUT","DELETE" ]
+        }
+      }
+    },
+    "Clusters": {
+      "products": {
+        "Destinations": {
+          "d1": {
+            "Address": "https://localhost:7000/"
+          }
+        }
+      }
+    }
+  }
+}

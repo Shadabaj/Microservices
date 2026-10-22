@@ -10,6 +10,7 @@
     <PackageReference Include="Duende.IdentityModel" Version="8.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="11.0.0-rc.1.26425.128" />
     <PackageReference Include="Ocelot" Version="25.0.1" />
+    <PackageReference Include="Yarp.ReverseProxy" Version="2.3.0" />
   </ItemGroup>
 
 </Project>
