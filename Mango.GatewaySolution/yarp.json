@@ -13,7 +13,52 @@
         "AuthorizationPolicy": "default",
         "Match": {
           "Path": "/api/products/{**catch-all}",
-          "Methods": [ "POST", "PUT","DELETE" ]
+          "Methods": [ "POST", "PUT", "DELETE" ]
+        }
+      },
+      "coupon-read": {
+        "ClusterId": "coupons",
+        "Match": {
+          "Path": "/api/coupons/{**catch-all}",
+          "Methods": [ "GET" ]
+        }
+      },
+      "coupon-write": {
+        "ClusterId": "coupons",
+        "AuthorizationPolicy": "default",
+        "Match": {
+          "Path": "/api/coupons/{**catch-all}",
+          "Methods": [ "POST", "PUT", "DELETE" ]
+        }
+      },
+      "cart-read": {
+        "ClusterId": "cart",
+        "Match": {
+          "Path": "/api/cart/{**catch-all}",
+          "Methods": [ "GET" ]
+        }
+      },
+      "cart-write": {
+        "ClusterId": "cart",
+        "AuthorizationPolicy": "default",
+        "Match": {
+          "Path": "/api/cart/{**catch-all}",
+          "Methods": [ "POST" ]
+        }
+      },
+      "order-read": {
+        "ClusterId": "orders",
+        "Match": {
+          "Path": "/api/orders/{**catch-all}",
+          "Methods": [ "GET" ]
+        }
+      },
+      "order-write": {
+        "ClusterId": "orders",
+        "AuthorizationPolicy": "default",
+        "Match": {
+          "Path": "/api/orders/{**catch-all}",
+          "Methods": [ "POST" ]
         }
       }
     },
@@ -22,6 +67,27 @@
         "Destinations": {
           "d1": {
             "Address": "https://localhost:7000/"
+          }
+        }
+      },
+      "coupons": {
+        "Destinations": {
+          "d1": {
+            "Address": "https://localhost:7001/"
+          }
+        }
+      },
+      "cart": {
+        "Destinations": {
+          "d1": {
+            "Address": "https://localhost:7003/"
+          }
+        }
+      },
+      "orders": {
+        "Destinations": {
+          "d1": {
+            "Address": "https://localhost:7004/"
           }
         }
       }
