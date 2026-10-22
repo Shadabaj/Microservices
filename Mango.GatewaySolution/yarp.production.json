@@ -1,0 +1,34 @@
+{
+  "ReverseProxy": {
+    "Clusters": {
+      "products": {
+        "Destinations": {
+          "d1": {
+            "Address": "https://mangoproductapi-etdzduescnc5brd7.eastus-01.azurewebsites.net/"
+          }
+        }
+      },
+      "coupons": {
+        "Destinations": {
+          "d1": {
+            "Address": "https://mangocouponapi-hjcxdyakcga9cqft.eastus-01.azurewebsites.net/"
+          }
+        }
+      },
+      "cart": {
+        "Destinations": {
+          "d1": {
+            "Address": "https://mangoshoppingcartapi-hkech8c9aydhfdda.eastus-01.azurewebsites.net/"
+          }
+        }
+      },
+      "orders": {
+        "Destinations": {
+          "d1": {
+            "Address": "https://mangoorderapi-h5apgfhte3cxf7hx.eastus-01.azurewebsites.net/"
+          }
+        }
+      }
+    }
+  }
+}

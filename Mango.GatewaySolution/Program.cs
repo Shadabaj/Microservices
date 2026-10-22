@@ -5,6 +5,10 @@ using Ocelot.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddJsonFile("yarp.json", optional: false, reloadOnChange: true);
+if(!builder.Environment.IsDevelopment())
+{
+    builder.Configuration.AddJsonFile("yarp.production.json", optional: false, reloadOnChange: true);
+}
 builder.Services.AddReverseProxy().LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
 builder.AddJwtAuthentication();
 builder.Services.AddAuthorization();
