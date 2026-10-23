@@ -64,23 +64,23 @@
     },
     "Clusters": {
       "products": {
-        "LoadBalancingPolicy": "RoundRobin",
-        "HealthCheck": {
-          "Active": {
-            "Enabled": true,
-            "Interval": "00:00:15",
-            "Timeout": "00:00:05",
-            "Policy": "ConsecutiveFailures",
-            "Path": "/health"
-          }
-        },
+        //"LoadBalancingPolicy": "RoundRobin",
+        //"HealthCheck": {
+        //  "Active": {
+        //    "Enabled": true,
+        //    "Interval": "00:00:15",
+        //    "Timeout": "00:00:05",
+        //    "Policy": "ConsecutiveFailures",
+        //    "Path": "/health"
+        //  }
+        //},
         "Destinations": {
           "d1": {
             "Address": "https://localhost:7000/"
           },
-          "d2": {
-            "Address": "https://localhost:7010/"
-          }
+          //"d2": {
+          //  "Address": "https://localhost:7010/"
+          //}
         }
       },
       "coupons": {
