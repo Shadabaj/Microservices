@@ -22,7 +22,7 @@ builder.Services.AddAutoMapper(o =>
 {
     o.CreateMap<ProductDto, Product>().ReverseMap().ForMember(dest => dest.Image, opt => opt.Ignore());
 });
-
+builder.Services.AddHealthChecks();
 builder.AddJwtAuthentication();
 var app = builder.Build();
 
@@ -38,6 +38,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHealthChecks("/health");
 ApplyMigration();
 app.Run();
 
