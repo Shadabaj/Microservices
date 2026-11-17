@@ -32,7 +32,9 @@ builder.Services.AddAutoMapper(o =>
     o.CreateMap<OrderDetailsDto, CartDetailsDto>();
 });
 builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<IMessageBus, MessageBus>();
+var serviceBusConnectionString = builder.Configuration["ServiceBusConnectionString"]
+    ?? throw new InvalidOperationException("ServiceBusConnectionString is not configured");
+builder.Services.AddScoped<IMessageBus>(_ => new MessageBus(serviceBusConnectionString));
 
 
 builder.Services.AddHttpClient("Product",

@@ -26,7 +26,9 @@ builder.Services.AddAutoMapper(o =>
     o.CreateMap<CartDetails, CartDetailsDto>().ReverseMap();
 });
 builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<IMessageBus,MessageBus>();
+var serviceBusConnectionString = builder.Configuration["ServiceBusConnectionString"]
+    ?? throw new InvalidOperationException("ServiceBusConnectionString is not configured");
+builder.Services.AddScoped<IMessageBus>(_ => new MessageBus(serviceBusConnectionString));
 builder.Services.AddScoped<ICouponService, CouponService>();
 
 builder.Services.AddHttpClient("Product", 

@@ -20,7 +20,9 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 #region Azure Service Bus
-//builder.Services.AddScoped<IMessageBus, MessageBus>();
+var serviceBusConnectionString = builder.Configuration["ServiceBusConnectionString"]
+    ?? throw new InvalidOperationException("ServiceBusConnectionString is not configured");
+builder.Services.AddScoped<IMessageBus>(_ => new MessageBus(serviceBusConnectionString));
 #endregion
 #region RabbitMQ
 //builder.Services.AddScoped<IRabbitMQAuthMessageSender, RabbitMQAuthMessageSender>();
