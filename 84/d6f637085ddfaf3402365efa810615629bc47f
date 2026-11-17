@@ -1,0 +1,14 @@
+Mango.Web/appsettings.production.json
+  h_413728cd9db217 23-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "84d6f637085ddfaf3402365efa810615629bc47f",
+  "prompts": {},
+  "humans": {
+    "h_413728cd9db217": {
+      "author": "shadabaj <shadabansari.iyc@gmail.com>"
+    }
+  }
+}
