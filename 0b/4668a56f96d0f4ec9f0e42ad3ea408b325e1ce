@@ -1,0 +1,129 @@
+Mango.Web/Views/Auth/Login.cshtml
+  s_a3431168308874::t_6a9dbfb22e48cc 24
+Mango.OrderAPI/Migrations/20260928213904_updateOrderTotalColumn.Designer.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 23
+Mango.Services.AuthAPI/Program.cs
+  s_4ad0719a0fcc0f::t_15ddcb587b7d1e 37,56
+  s_4ad0719a0fcc0f::t_0b41e464972f8d 38,42-43
+Mango.OrderAPI/Migrations/20260928194947_AddOrderToDB.Designer.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 23
+Mango.MessageBus/Mango.MessageBus.csproj
+  s_4ad0719a0fcc0f::t_3f860a972efe21 1
+  s_4ad0719a0fcc0f::t_f64a213ce26108 4
+Mango.OrderAPI/Mango.OrderAPI.csproj
+  s_4ad0719a0fcc0f::t_f64a213ce26108 4,11-12,16-17
+Mango.ShoppingCart/Mango.ShoppingCartAPI.csproj
+  s_4ad0719a0fcc0f::t_f64a213ce26108 4,11-12,16-17
+Mango.Serives.Shared/Mango.Serives.Shared.csproj
+  s_4ad0719a0fcc0f::t_f64a213ce26108 4,12
+  s_4ad0719a0fcc0f::t_3f860a972efe21 1
+Mango.RewardsAPI/Migrations/ApplicationDbContextModelSnapshot.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 20
+Mango.Services.ProductAPI/appsettings.Production.json
+  s_5366cfcb5eed92::t_da29ca6e762caa 10
+  s_5366cfcb5eed92::t_9c17195f2db556 11
+Mango.Services.AuthAPI/Mango.AuthAPI.csproj
+  s_4ad0719a0fcc0f::t_f64a213ce26108 4,12-13,17-18,22
+  s_5366cfcb5eed92::t_de0fc234d30fc8 23-24
+Mango.CouponAPI/Migrations/ApplicationDbContextModelSnapshot.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 19
+Mango.RewardsAPI/Mango.RewardsAPI.csproj
+  s_4ad0719a0fcc0f::t_3f860a972efe21 1
+  s_4ad0719a0fcc0f::t_f64a213ce26108 4,12-13,17-18
+Mango.EmailAPI/Migrations/20260928150350_AddEmailToDb.Designer.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 23
+Mango.GatewaySolution/yarp.production.json
+  s_5366cfcb5eed92::t_01ed110cedb750 34
+  s_5366cfcb5eed92::t_f5f174e5192e9c 7,14,21,28
+Mango.Services.ProductAPI/Migrations/ApplicationDbContextModelSnapshot.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 19
+Mango.ShoppingCart/Migrations/20260925014857_AddShoppingCartToDb.Designer.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 22
+Mango.Services.AuthAPI/Migrations/ApplicationDbContextModelSnapshot.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 20
+Mango.ShoppingCart/Migrations/ApplicationDbContextModelSnapshot.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 19
+Mango.Services.AuthAPI/RabbitMQSender/RabbitMQAuthMessageSender.cs
+  s_5366cfcb5eed92::t_ca6580b5f46357 1-7,13-23,37-39,48,51,54,56-57,73
+  s_5366cfcb5eed92::t_27848b2c0d1119 8-12
+  s_5366cfcb5eed92::t_79de3e4577f872 24-26,34-36
+  s_5366cfcb5eed92::t_77f2e3f7ff86ba 40-42,45-47
+  s_5366cfcb5eed92::t_50069c0ffd2f9a 49-50
+  s_5366cfcb5eed92::t_f0aa279f8c64b6 52-53
+  s_5366cfcb5eed92::t_6bcd3ee03a3bbb 55
+  s_5366cfcb5eed92::t_0c40be9c11917c 58-60,70-72
+  s_5366cfcb5eed92::t_574e52de3d6738 74-76
+Mango.Web/Views/Auth/Register.cshtml
+  s_a3431168308874::t_6e041df3181b95 38
+Mango.EmailAPI/Mango.EmailAPI.csproj
+  s_4ad0719a0fcc0f::t_f64a213ce26108 4,12-13,17-18
+Mango.GatewaySolution/Mango.GatewaySolution.csproj
+  s_4ad0719a0fcc0f::t_f64a213ce26108 4,11
+  s_5366cfcb5eed92::t_2e41e77915e4c3 16-19
+Mango.Web/appsettings.production.json
+  s_5366cfcb5eed92::t_ca61a56d610ffd 11-20
+  s_5366cfcb5eed92::t_c155e85bb79f85 10
+Mango.EmailAPI/Migrations/ApplicationDbContextModelSnapshot.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 20
+Mango.OrderAPI/Migrations/ApplicationDbContextModelSnapshot.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 20
+Mango.Services.AuthAPI/Migrations/20260921142353_AddIdentityTables.Designer.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 23
+Mango.RewardsAPI/Migrations/20260929025803_AddRewardsToDb.Designer.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 23
+Mango.Web/appsettings.Development.json
+  s_5366cfcb5eed92::t_55edce6f6c21b0 7-13
+Mango.CouponAPI/Migrations/20260920151830_AddCouponToDb.Designer.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 22
+Mango.Services.ProductAPI/Mango.ProductAPI.csproj
+  s_4ad0719a0fcc0f::t_f64a213ce26108 4,11-12,16-17
+Mango.Services.AuthAPI/Service/JwtTokenGenerator.cs
+  s_4ad0719a0fcc0f::t_d37484a564dfc5 30
+Mango.GatewaySolution/ocelot.production.json
+  s_5366cfcb5eed92::t_196e70ed058fd0 7,10-12,20,23-25,33,36-38,49,52-54,62,67,70-72,80,83-85,93,96-98,106,109-111,122,125-127,135,140,143-145,153,156-158,169,172-174,185,188-190,201,204-206,214,219,222-224,232,235-237,245,248-250,261,264-266,277,280-282,291-292,294
+Mango.Web/Mango.Web.csproj
+  s_4ad0719a0fcc0f::t_f64a213ce26108 4
+Mango.Services.ProductAPI/Migrations/20260924181618_AddProductToDb.Designer.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 22
+Mango.CouponAPI/Mango.CouponAPI.csproj
+  s_4ad0719a0fcc0f::t_f64a213ce26108 4,13-14,18-19
+  s_4ad0719a0fcc0f::t_5f4484d4cd63de 7-8
+Mango.Services.AuthAPI/Migrations/20260921155818_AddNameToAspNetUsers.Designer.cs
+  s_4ad0719a0fcc0f::t_8334af21584808 23
+Mango.GatewaySolution/Program.cs
+  s_5366cfcb5eed92::t_8ed27a16811326 8-9,11,13,15-16,18-19,28
+Mango.Services.ProductAPI/appsettings.json
+  s_5366cfcb5eed92::t_bcc7eeebdae662 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0b4668a56f96d0f4ec9f0e42ad3ea408b325e1ce",
+  "prompts": {},
+  "sessions": {
+    "s_4ad0719a0fcc0f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "35345857-9f03-44f4-ba4b-07681f7797c1",
+        "model": "auto-smart"
+      },
+      "human_author": "shadabaj <shadabansari.iyc@gmail.com>"
+    },
+    "s_5366cfcb5eed92": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "284bf902-2a51-4fe5-85c7-0fc82dc029b3",
+        "model": "auto-smart"
+      },
+      "human_author": "shadabaj <shadabansari.iyc@gmail.com>"
+    },
+    "s_a3431168308874": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "9cbefc39-39d7-48f8-b5d6-7e6c3a9fdce6",
+        "model": "auto-smart"
+      },
+      "human_author": "shadabaj <shadabansari.iyc@gmail.com>"
+    }
+  }
+}
