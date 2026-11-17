@@ -1,0 +1,23 @@
+Mango.Web/Program.cs
+  s_a3431168308874::t_f655559aa62f17 54
+Mango.Web/Views/Shared/_Layout.cshtml
+  s_a3431168308874::t_c860ba4f0a3f39 8-9
+Mango.Web/Views/Home/Index.cshtml
+  s_a3431168308874::t_a4c9b9f94dd419 123-127,129-134,147,150-155
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2ff1e02f4a1a5f09a9cc724403e4e5f9e6db9955",
+  "prompts": {},
+  "sessions": {
+    "s_a3431168308874": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "9cbefc39-39d7-48f8-b5d6-7e6c3a9fdce6",
+        "model": "auto-smart"
+      },
+      "human_author": "shadabaj <shadabansari.iyc@gmail.com>"
+    }
+  }
+}
