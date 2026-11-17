@@ -1,0 +1,32 @@
+Mango.OrderAPI/appsettings.json
+  s_a3431168308874::t_12064b8e65e38c 25-26
+Mango.ShoppingCart/Program.cs
+  s_a3431168308874::t_42cd2f6e654755 29-31
+Mango.OrderAPI/Program.cs
+  s_a3431168308874::t_c98905d20fe948 35-37
+Mango.EmailAPI/appsettings.json
+  s_a3431168308874::t_6ca02bd7bdece9 19
+Mango.MessageBus/MessageBus.cs
+  s_a3431168308874::t_6c1860080f16cf 8,11,14,18
+  s_a3431168308874::t_f4c2de1c294f45 10,12-13
+Mango.Services.AuthAPI/Program.cs
+  s_a3431168308874::t_513bd5c1117682 23-25
+Mango.ShoppingCart/appsettings.json
+  s_a3431168308874::t_876fe6d14ec271 26-27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "56cd3b31ad2d0c31a5f54c013b7d0e93b29b17ca",
+  "prompts": {},
+  "sessions": {
+    "s_a3431168308874": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "9cbefc39-39d7-48f8-b5d6-7e6c3a9fdce6",
+        "model": "auto-smart"
+      },
+      "human_author": "shadabaj <shadabansari.iyc@gmail.com>"
+    }
+  }
+}
