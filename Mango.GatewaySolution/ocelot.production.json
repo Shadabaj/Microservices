@@ -1,16 +1,15 @@
 {
-
-
-
   "Routes": [
     {
       "UpstreamHttpMethod": [ "Get" ],
       "UpstreamPathTemplate": "/api/products",
       "DownstreamPathTemplate": "/api/products",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangoproductapi-etdzduescnc5brd7.eastus-01.azurewebsites.net"
+          // "Host": "mangoproductapi-etdzduescnc5brd7.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7000
         }
       ]
     },
@@ -18,10 +17,12 @@
       "UpstreamHttpMethod": [ "Get" ],
       "UpstreamPathTemplate": "/api/products/{id}",
       "DownstreamPathTemplate": "/api/products/{id}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangoproductapi-etdzduescnc5brd7.eastus-01.azurewebsites.net"
+          // "Host": "mangoproductapi-etdzduescnc5brd7.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7000
         }
       ]
     },
@@ -29,10 +30,12 @@
       "UpstreamHttpMethod": [ "POST", "PUT" ],
       "UpstreamPathTemplate": "/api/products",
       "DownstreamPathTemplate": "/api/products",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangoproductapi-etdzduescnc5brd7.eastus-01.azurewebsites.net"
+          // "Host": "mangoproductapi-etdzduescnc5brd7.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7000
         }
       ],
       "AuthenticationOptions": {
@@ -43,10 +46,12 @@
       "UpstreamHttpMethod": [ "Delete" ],
       "UpstreamPathTemplate": "/api/products/{id}",
       "DownstreamPathTemplate": "/api/products/{id}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangoproductapi-etdzduescnc5brd7.eastus-01.azurewebsites.net"
+          // "Host": "mangoproductapi-etdzduescnc5brd7.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7000
         }
       ],
       "AuthenticationOptions": {
@@ -54,15 +59,17 @@
       }
     },
 
-    //coupon API //"CouponAPI": "https://localhost:7001",
+    // CouponAPI: http://102.37.130.56:7001
     {
       "UpstreamHttpMethod": [ "Get" ],
       "UpstreamPathTemplate": "/api/coupons",
       "DownstreamPathTemplate": "/api/coupons",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangocouponapi-hjcxdyakcga9cqft.eastus-01.azurewebsites.net"
+          // "Host": "mangocouponapi-hjcxdyakcga9cqft.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7001
         }
       ]
     },
@@ -70,10 +77,12 @@
       "UpstreamHttpMethod": [ "Get" ],
       "UpstreamPathTemplate": "/api/coupons/GetByCode/{code}",
       "DownstreamPathTemplate": "/api/coupons/GetByCode/{code}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangocouponapi-hjcxdyakcga9cqft.eastus-01.azurewebsites.net"
+          // "Host": "mangocouponapi-hjcxdyakcga9cqft.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7001
         }
       ]
     },
@@ -81,10 +90,12 @@
       "UpstreamHttpMethod": [ "Get" ],
       "UpstreamPathTemplate": "/api/coupons/{id}",
       "DownstreamPathTemplate": "/api/coupons/{id}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangocouponapi-hjcxdyakcga9cqft.eastus-01.azurewebsites.net"
+          // "Host": "mangocouponapi-hjcxdyakcga9cqft.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7001
         }
       ]
     },
@@ -92,10 +103,12 @@
       "UpstreamHttpMethod": [ "POST", "PUT" ],
       "UpstreamPathTemplate": "/api/coupons",
       "DownstreamPathTemplate": "/api/coupons",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangocouponapi-hjcxdyakcga9cqft.eastus-01.azurewebsites.net"
+          // "Host": "mangocouponapi-hjcxdyakcga9cqft.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7001
         }
       ],
       "AuthenticationOptions": {
@@ -106,10 +119,12 @@
       "UpstreamHttpMethod": [ "Delete" ],
       "UpstreamPathTemplate": "/api/coupons/{id}",
       "DownstreamPathTemplate": "/api/coupons/{id}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangocouponapi-hjcxdyakcga9cqft.eastus-01.azurewebsites.net"
+          // "Host": "mangocouponapi-hjcxdyakcga9cqft.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7001
         }
       ],
       "AuthenticationOptions": {
@@ -117,28 +132,30 @@
       }
     },
 
-
-    //"ShoppingCartAPI": "https://localhost:7003",
+    // ShoppingCartAPI: http://102.37.130.56:7003
     {
       "UpstreamHttpMethod": [ "Get" ],
       "UpstreamPathTemplate": "/api/cart/GetCart/{userId}",
       "DownstreamPathTemplate": "/api/cart/GetCart/{userId}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangoshoppingcartapi-hkech8c9aydhfdda.eastus-01.azurewebsites.net"
+          // "Host": "mangoshoppingcartapi-hkech8c9aydhfdda.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7003
         }
       ]
     },
-
     {
       "UpstreamHttpMethod": [ "POST" ],
       "UpstreamPathTemplate": "/api/cart/ApplyCoupon",
       "DownstreamPathTemplate": "/api/cart/ApplyCoupon",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangoshoppingcartapi-hkech8c9aydhfdda.eastus-01.azurewebsites.net"
+          // "Host": "mangoshoppingcartapi-hkech8c9aydhfdda.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7003
         }
       ],
       "AuthenticationOptions": {
@@ -149,10 +166,12 @@
       "UpstreamHttpMethod": [ "POST" ],
       "UpstreamPathTemplate": "/api/cart/RemoveCartDetails",
       "DownstreamPathTemplate": "/api/cart/RemoveCartDetails",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangoshoppingcartapi-hkech8c9aydhfdda.eastus-01.azurewebsites.net"
+          // "Host": "mangoshoppingcartapi-hkech8c9aydhfdda.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7003
         }
       ],
       "AuthenticationOptions": {
@@ -163,10 +182,12 @@
       "UpstreamHttpMethod": [ "POST" ],
       "UpstreamPathTemplate": "/api/cart/CartUpsert",
       "DownstreamPathTemplate": "/api/cart/CartUpsert",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangoshoppingcartapi-hkech8c9aydhfdda.eastus-01.azurewebsites.net"
+          // "Host": "mangoshoppingcartapi-hkech8c9aydhfdda.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7003
         }
       ],
       "AuthenticationOptions": {
@@ -177,10 +198,12 @@
       "UpstreamHttpMethod": [ "POST" ],
       "UpstreamPathTemplate": "/api/cart/EmailCartRequest",
       "DownstreamPathTemplate": "/api/cart/EmailCartRequest",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangoshoppingcartapi-hkech8c9aydhfdda.eastus-01.azurewebsites.net"
+          // "Host": "mangoshoppingcartapi-hkech8c9aydhfdda.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7003
         }
       ],
       "AuthenticationOptions": {
@@ -188,17 +211,17 @@
       }
     },
 
-
-
-    //"OrderAPI": "https://localhost:7004",
+    // OrderAPI: http://102.37.130.56:7004
     {
       "UpstreamHttpMethod": [ "Get" ],
       "UpstreamPathTemplate": "/api/orders/GetOrders",
       "DownstreamPathTemplate": "/api/orders/GetOrders",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangoorderapi-h5apgfhte3cxf7hx.eastus-01.azurewebsites.net"
+          // "Host": "mangoorderapi-h5apgfhte3cxf7hx.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7004
         }
       ]
     },
@@ -206,10 +229,12 @@
       "UpstreamHttpMethod": [ "Get" ],
       "UpstreamPathTemplate": "/api/orders/GetOrderById/{orderId}",
       "DownstreamPathTemplate": "/api/orders/GetOrderById/{orderId}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangoorderapi-h5apgfhte3cxf7hx.eastus-01.azurewebsites.net"
+          // "Host": "mangoorderapi-h5apgfhte3cxf7hx.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7004
         }
       ]
     },
@@ -217,10 +242,12 @@
       "UpstreamHttpMethod": [ "POST" ],
       "UpstreamPathTemplate": "/api/orders/UpdateOrderStatus/{orderId}",
       "DownstreamPathTemplate": "/api/orders/UpdateOrderStatus/{orderId}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangoorderapi-h5apgfhte3cxf7hx.eastus-01.azurewebsites.net"
+          // "Host": "mangoorderapi-h5apgfhte3cxf7hx.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7004
         }
       ],
       "AuthenticationOptions": {
@@ -231,10 +258,12 @@
       "UpstreamHttpMethod": [ "POST" ],
       "UpstreamPathTemplate": "/api/orders/CreateOrder",
       "DownstreamPathTemplate": "/api/orders/CreateOrder",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangoorderapi-h5apgfhte3cxf7hx.eastus-01.azurewebsites.net"
+          // "Host": "mangoorderapi-h5apgfhte3cxf7hx.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7004
         }
       ],
       "AuthenticationOptions": {
@@ -245,22 +274,21 @@
       "UpstreamHttpMethod": [ "POST" ],
       "UpstreamPathTemplate": "/api/orders/ConfirmOrder/{orderId}",
       "DownstreamPathTemplate": "/api/orders/ConfirmOrder/{orderId}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "mangoorderapi-h5apgfhte3cxf7hx.eastus-01.azurewebsites.net"
+          // "Host": "mangoorderapi-h5apgfhte3cxf7hx.eastus-01.azurewebsites.net"
+          "Host": "102.37.130.56",
+          "Port": 7004
         }
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
       }
     }
-
-
-
-
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https://mangogatewaysolution-g2dyh5auexdedmds.eastus-01.azurewebsites.net/"
+    // "BaseUrl": "https://mangogatewaysolution-g2dyh5auexdedmds.eastus-01.azurewebsites.net/"
+    "BaseUrl": "http://102.37.130.56:7777/"
   }
 }

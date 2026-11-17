@@ -4,6 +4,7 @@ using Mango.AuthAPI.Service.IService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Mango.MessageBus;
+using Mango.AuthAPI.RabbitMQSender;
 
 namespace Mango.AuthAPI.Controllers
 {
@@ -20,11 +21,13 @@ namespace Mango.AuthAPI.Controllers
         private const string AdminRole = "ADMIN";
         private readonly ResponseDto _responseDto;
         private readonly IMessageBus _messageBus;
+        //private readonly IRabbitMQAuthMessageSender _messageBus;
 
         public AuthAPIController(UserManager<ApplicationUser> userManager,
             IJwtTokenGenerator jwtTokenGenerator,
             RoleManager<IdentityRole> roleManager,
             IMessageBus messageBus,
+            //IRabbitMQAuthMessageSender messageBus,
             IConfiguration configuration)
         {
             _userManager = userManager;
@@ -85,9 +88,13 @@ namespace Mango.AuthAPI.Controllers
             await _userManager.AddToRoleAsync(user, roleToAssign);
 
             var queueName = _configuration.GetValue<string>("TopicAndQueueNames:RegisterUserQueue")
-                 ?? throw new InvalidOperationException("TopicAndQueueNames:RegisterUserQueue is not configured"); ;
+                 ?? throw new InvalidOperationException("TopicAndQueueNames:RegisterUserQueue is not configured");
+            #region For the Azure Service Bus, we will publish the message to the queue for further processing
             await _messageBus.PublishMessage(queueName,user.Email);
-
+            #endregion
+            #region For the RabbitMQ, we will publish the message to the queue for further processing
+            //_messageBus.SendMessage(queueName, user.Email);
+            #endregion
             return Ok(_responseDto);
         }
 

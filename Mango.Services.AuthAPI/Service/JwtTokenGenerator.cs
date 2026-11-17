@@ -27,7 +27,7 @@ namespace Mango.AuthAPI.Service
             {
                 new Claim(JwtRegisteredClaimNames.Sub,user.Id),
                 new Claim(JwtRegisteredClaimNames.Email,user.Email!),
-                new Claim(JwtRegisteredClaimNames.PhoneNumber,user.PhoneNumber!),
+                new Claim("phone_number", user.PhoneNumber ?? string.Empty),
                 new Claim(JwtRegisteredClaimNames.Name,user.UserName!),
                 new Claim(JwtRegisteredClaimNames.GivenName,user.Name!),
             };

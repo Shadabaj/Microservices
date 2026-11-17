@@ -1,5 +1,6 @@
 using Mango.AuthAPI.Data;
 using Mango.AuthAPI.Models;
+using Mango.AuthAPI.RabbitMQSender;
 using Mango.AuthAPI.Service;
 using Mango.AuthAPI.Service.IService;
 using Mango.MessageBus;
@@ -18,10 +19,14 @@ builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("ApiSett
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
-builder.Services.AddScoped<IMessageBus,MessageBus>();
+#region Azure Service Bus
+//builder.Services.AddScoped<IMessageBus, MessageBus>();
+#endregion
+#region RabbitMQ
+//builder.Services.AddScoped<IRabbitMQAuthMessageSender, RabbitMQAuthMessageSender>();
+#endregion
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddAutoMapper(o =>
 {
@@ -29,12 +34,13 @@ builder.Services.AddAutoMapper(o =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-    app.MapOpenApi();
-    app.MapScalarApiReference();
+app.MapOpenApi();
+app.MapScalarApiReference();
 
 app.MapGet("/", () => Results.Redirect("/scalar/v1"));
 
-app.UseHttpsRedirection();
+// Disabled for IIS HTTP-only binding on port 7002
+// app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 

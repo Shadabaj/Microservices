@@ -21,7 +21,6 @@ builder.Services.AddSingleton<IRewardService>(new RewardService(optionsBuilder.O
 
 builder.Services.AddControllers();
 builder.Services.AddHostedService<AzureServiceBusConsumer>();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 var app = builder.Build();

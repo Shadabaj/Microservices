@@ -4,28 +4,28 @@
       "products": {
         "Destinations": {
           "d1": {
-            "Address": "https://mangoproductapi-etdzduescnc5brd7.eastus-01.azurewebsites.net/"
+            "Address": "http://102.37.130.56:7000/"
           }
         }
       },
       "coupons": {
         "Destinations": {
           "d1": {
-            "Address": "https://mangocouponapi-hjcxdyakcga9cqft.eastus-01.azurewebsites.net/"
+            "Address": "http://102.37.130.56:7001/"
           }
         }
       },
       "cart": {
         "Destinations": {
           "d1": {
-            "Address": "https://mangoshoppingcartapi-hkech8c9aydhfdda.eastus-01.azurewebsites.net/"
+            "Address": "http://102.37.130.56:7003/"
           }
         }
       },
       "orders": {
         "Destinations": {
           "d1": {
-            "Address": "https://mangoorderapi-h5apgfhte3cxf7hx.eastus-01.azurewebsites.net/"
+            "Address": "http://102.37.130.56:7004/"
           }
         }
       }
