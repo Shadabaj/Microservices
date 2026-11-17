@@ -120,7 +120,18 @@
         });
     });
 
+    function redirectToLogin() {
+        const returnUrl = encodeURIComponent(window.location.pathname + window.location.search);
+        window.location.href = '@Url.Action("Login", "Auth")?returnUrl=' + returnUrl;
+    }
+
     async function addToCart(btn) {
+        const isAuthenticated = @(User.Identity?.IsAuthenticated == true ? "true" : "false");
+        if (!isAuthenticated) {
+            redirectToLogin();
+            return;
+        }
+
         const productId = parseInt(btn.dataset.productId);
         const originalHtml = btn.innerHTML;
 
@@ -128,18 +139,21 @@
         btn.innerHTML = '<i class="bi bi-hourglass-split me-1"></i>Adding…';
 
         try {
-            // TODO: dummy call for now, replace with real fetch to AddToCart
-
             const response = await fetch('@Url.Action("AddToCart","Home")',{
                 method: 'POST',
                 headers:{
                     'Content-Type': 'application/json'
                 },
+                credentials: 'same-origin',
                 body: JSON.stringify(productId)
             });
-            
+
+            if (response.status === 401 || response.status === 403 || response.redirected) {
+                redirectToLogin();
+                return;
+            }
+
             const data = await response.json();
-            console.log(data);
             if (data.success) {
                 toastr.success(data.message);
                 btn.innerHTML = '<i class="bi bi-check-lg me-1"></i>Added!';
