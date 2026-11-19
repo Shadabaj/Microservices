@@ -1,3 +1,4 @@
+
 using Mango.RewardsAPI.Data;
 using Mango.RewardsAPI.Messaging;
 using Mango.RewardsAPI.Services;
@@ -18,9 +19,11 @@ var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
 optionsBuilder.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 
 builder.Services.AddSingleton<IRewardService>(new RewardService(optionsBuilder.Options));
+builder.Services.AddHostedService<RabbitMQRewardConsumser>();
 
 builder.Services.AddControllers();
-builder.Services.AddHostedService<AzureServiceBusConsumer>();
+//Azure Bus Consumer From the Topic Subscription
+//builder.Services.AddHostedService<AzureServiceBusConsumer>();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();

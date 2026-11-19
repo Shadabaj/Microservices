@@ -1,11 +1,12 @@
 using Mango.AuthAPI.Data;
 using Mango.AuthAPI.Models;
-using Mango.AuthAPI.RabbitMQSender;
 using Mango.AuthAPI.Service;
 using Mango.AuthAPI.Service.IService;
 using Mango.MessageBus;
+using Mango.MessageBus.RabbitMQSender;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,12 +21,12 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 #region Azure Service Bus
-var serviceBusConnectionString = builder.Configuration["ServiceBusConnectionString"]
-    ?? throw new InvalidOperationException("ServiceBusConnectionString is not configured");
-builder.Services.AddScoped<IMessageBus>(_ => new MessageBus(serviceBusConnectionString));
+var serviceBusConnectionString = builder.Configuration["ServiceBusConnectionString"] ?? throw new InvalidOperationException("ServiceBusConnectionString is not configured");
+//builder.Services.AddScoped<IMessageBus>(_ => new MessageBus(serviceBusConnectionString));
 #endregion
 #region RabbitMQ
-//builder.Services.AddScoped<IRabbitMQAuthMessageSender, RabbitMQAuthMessageSender>();
+//builder.Configuration["RabbitMQ"]
+builder.Services.AddScoped<IRabbitMQExchangeSender>(_ => new RabbitMQAuthMessageSender(builder.Configuration.GetSection("RabbitMQ")));
 #endregion
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 builder.Services.AddControllers();

@@ -21,7 +21,11 @@ optionsBuilder.UseSqlServer(builder.Configuration.GetConnectionString("DefaultCo
 builder.Services.AddSingleton<IEmailService>(new EmailService(optionsBuilder.Options));
 
 builder.Services.AddControllers();
-builder.Services.AddHostedService<AzureServiceBusConsumer>();
+//builder.Services.AddHostedService<AzureServiceBusConsumer>();
+builder.Services.AddHostedService<RabbitMQAuthConsumser>();
+builder.Services.AddHostedService<RabbitMQCartConsumser>();
+//For the Exchange
+builder.Services.AddHostedService<RabbitMQOrderConsumser>();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();

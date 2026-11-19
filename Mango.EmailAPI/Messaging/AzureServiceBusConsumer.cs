@@ -28,32 +28,37 @@ namespace Mango.EmailAPI.Messaging
             _configuration = configuration;
             _logger = logger;
             _emailService = emailService;
-            serviceBusConnectionString = _configuration.GetValue<string>("ServiceBusConnectionString")
-                ?? throw new InvalidOperationException("Missing configuration value: ServiceBusConnectionString");
-            registerUserQueue = _configuration.GetValue<string>("TopicAndQueueNames:RegisterUserQueue")
-               ?? throw new InvalidOperationException("Missing configuration value: RegisterUserQueue");
-            emailCartQueue = _configuration.GetValue<string>("TopicAndQueueNames:EmailShoppingCartQueue")
-                ?? throw new InvalidOperationException("Missing configuration value: EmailShoppingCartQueue");
-            orderCreatedTopic = _configuration.GetValue<string>("TopicAndQueueNames:OrderCreatedTopic")
-            ?? throw new InvalidOperationException("Missing configuration value: OrderCreatedTopic");
-            orderCreatedEmailSubscription = _configuration.GetValue<string>("TopicAndQueueNames:OrderCreatedEmailSubscription")
-                ?? throw new InvalidOperationException("Missing configuration value: OrderCreatedEmailSubscription");
-
+            serviceBusConnectionString = _configuration.GetValue<string>("ServiceBusConnectionString")    ?? throw new InvalidOperationException("Missing configuration value: ServiceBusConnectionString");
+            #region QueueNames
+            registerUserQueue = _configuration.GetValue<string>("TopicAndQueueNames:RegisterUserQueue")   ?? throw new InvalidOperationException("Missing configuration value: RegisterUserQueue");
+            emailCartQueue = _configuration.GetValue<string>("TopicAndQueueNames:EmailShoppingCartQueue") ?? throw new InvalidOperationException("Missing configuration value: EmailShoppingCartQueue");
+            #endregion
+            #region Topic & Subscription Names
+            //Topic Name
+            orderCreatedTopic = _configuration.GetValue<string>("TopicAndQueueNames:OrderCreatedTopic")   ?? throw new InvalidOperationException("Missing configuration value: OrderCreatedTopic");
+            //Subscription Name
+            orderCreatedEmailSubscription = _configuration.GetValue<string>("TopicAndQueueNames:OrderCreatedEmailSubscription")?? throw new InvalidOperationException("Missing configuration value: OrderCreatedEmailSubscription");
+            #endregion
             var client = new ServiceBusClient(serviceBusConnectionString);
+
+            #region Email Cart Azure Bus Topic 
             _orderCreatedProcessor = client.CreateProcessor(orderCreatedTopic, orderCreatedEmailSubscription, new ServiceBusProcessorOptions
             {
                 AutoCompleteMessages = false
             });
-
-
+            #endregion
+            #region Email Cart Azure Bus Queue 
             _emailCartProcessor = client.CreateProcessor(emailCartQueue, new ServiceBusProcessorOptions
             {
                 AutoCompleteMessages = false
             });
+            #endregion
+            #region Register Azure Bus Queue 
             _registerUserProcessor = client.CreateProcessor(registerUserQueue, new ServiceBusProcessorOptions
             {
                 AutoCompleteMessages = false
             });
+            #endregion
         }
 
         public async Task StartAsync(CancellationToken cancellationToken)

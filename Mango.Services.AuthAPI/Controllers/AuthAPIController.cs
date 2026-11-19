@@ -4,7 +4,7 @@ using Mango.AuthAPI.Service.IService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Mango.MessageBus;
-using Mango.AuthAPI.RabbitMQSender;
+using Mango.MessageBus.RabbitMQSender;
 
 namespace Mango.AuthAPI.Controllers
 {
@@ -20,14 +20,14 @@ namespace Mango.AuthAPI.Controllers
         private readonly IConfiguration _configuration;
         private const string AdminRole = "ADMIN";
         private readonly ResponseDto _responseDto;
-        private readonly IMessageBus _messageBus;
-        //private readonly IRabbitMQAuthMessageSender _messageBus;
+        //private readonly IMessageBus _messageBus;
+        private readonly IRabbitMQExchangeSender _messageBus;
 
         public AuthAPIController(UserManager<ApplicationUser> userManager,
             IJwtTokenGenerator jwtTokenGenerator,
             RoleManager<IdentityRole> roleManager,
-            IMessageBus messageBus,
-            //IRabbitMQAuthMessageSender messageBus,
+            //IMessageBus messageBus,
+            IRabbitMQExchangeSender messageBus,
             IConfiguration configuration)
         {
             _userManager = userManager;
@@ -41,17 +41,17 @@ namespace Mango.AuthAPI.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterationRequestDto model)
         {
-            var roleToAssign = string.IsNullOrEmpty(model.Role) ? CustomerRole : model.Role.ToUpper();
-            if (roleToAssign != CustomerRole)
-            {
-                //add one more check, later on.
-                if (roleToAssign != AdminRole)
-                {
-                    _responseDto.IsSuccess = false;
-                    _responseDto.ErrorMessage = "Invalid role specified.";
-                    return BadRequest(_responseDto);
-                }
-            }
+            //var roleToAssign = string.IsNullOrEmpty(model.Role) ? CustomerRole : model.Role.ToUpper();
+            //if (roleToAssign != CustomerRole)
+            //{
+            //    //add one more check, later on.
+            //    if (roleToAssign != AdminRole)
+            //    {
+            //        _responseDto.IsSuccess = false;
+            //        _responseDto.ErrorMessage = "Invalid role specified.";
+            //        return BadRequest(_responseDto);
+            //    }
+            //}
 
             ApplicationUser user = new()
             {
@@ -62,38 +62,37 @@ namespace Mango.AuthAPI.Controllers
             };
 
 
-            try
-            {
-                var result = await _userManager.CreateAsync(user, model.Password);
-                if (!result.Succeeded)
-                {
-                    _responseDto.IsSuccess = false;
-                    _responseDto.ErrorMessage = "User creation failed. Please check the details and try again.";
-                    return BadRequest(_responseDto);
-                }
-            }
-            catch (Exception ex)
-            {
-                _responseDto.IsSuccess = false;
-                _responseDto.ErrorMessage = "Error Encountered";
-                return StatusCode(StatusCodes.Status500InternalServerError, _responseDto);
-            }
+            //try
+            //{
+            //    var result = await _userManager.CreateAsync(user, model.Password);
+            //    if (!result.Succeeded)
+            //    {
+            //        _responseDto.IsSuccess = false;
+            //        _responseDto.ErrorMessage = "User creation failed. Please check the details and try again.";
+            //        return BadRequest(_responseDto);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    _responseDto.IsSuccess = false;
+            //    _responseDto.ErrorMessage = "Error Encountered";
+            //    return StatusCode(StatusCodes.Status500InternalServerError, _responseDto);
+            //}
 
 
-            if(!await _roleManager.RoleExistsAsync(roleToAssign))
-            {
-                await _roleManager.CreateAsync(new IdentityRole(roleToAssign));
-            }
+            //if(!await _roleManager.RoleExistsAsync(roleToAssign))
+            //{
+            //    await _roleManager.CreateAsync(new IdentityRole(roleToAssign));
+            //}
 
-            await _userManager.AddToRoleAsync(user, roleToAssign);
+            //await _userManager.AddToRoleAsync(user, roleToAssign);
 
-            var queueName = _configuration.GetValue<string>("TopicAndQueueNames:RegisterUserQueue")
-                 ?? throw new InvalidOperationException("TopicAndQueueNames:RegisterUserQueue is not configured");
+            var queueName = _configuration.GetValue<string>("TopicAndQueueNames:RegisterUserQueue") ?? throw new InvalidOperationException("TopicAndQueueNames:RegisterUserQueue is not configured");
             #region For the Azure Service Bus, we will publish the message to the queue for further processing
-            await _messageBus.PublishMessage(queueName,user.Email);
+            //await _messageBus.PublishMessage(queueName,user.Email);
             #endregion
             #region For the RabbitMQ, we will publish the message to the queue for further processing
-            //_messageBus.SendMessage(queueName, user.Email);
+            _messageBus.SendMessage(user.Email, queueName);
             #endregion
             return Ok(_responseDto);
         }

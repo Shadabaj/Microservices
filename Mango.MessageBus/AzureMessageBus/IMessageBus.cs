@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Mango.MessageBus
+namespace Mango.MessageBus.AzureMessageBus
 {
     public interface IMessageBus
     {

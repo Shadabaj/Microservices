@@ -77,7 +77,7 @@
         "Destinations": {
           "d1": {
             "Address": "https://localhost:7000/"
-          },
+          }
           //"d2": {
           //  "Address": "https://localhost:7010/"
           //}

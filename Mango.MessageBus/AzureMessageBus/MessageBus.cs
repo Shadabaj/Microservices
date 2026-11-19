@@ -1,7 +1,7 @@
 ﻿using Azure.Messaging.ServiceBus;
 using Newtonsoft.Json;
 
-namespace Mango.MessageBus
+namespace Mango.MessageBus.AzureMessageBus
 {
     public class MessageBus : IMessageBus
     {
@@ -9,8 +9,7 @@ namespace Mango.MessageBus
 
         public MessageBus(string connectionString)
         {
-            _connectionString = connectionString
-                ?? throw new ArgumentNullException(nameof(connectionString));
+            _connectionString = connectionString ?? throw new ArgumentNullException(nameof(connectionString));
         }
 
         public async Task PublishMessage(string queue_topic_Name, object message)

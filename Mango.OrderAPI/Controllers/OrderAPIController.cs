@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using Mango.MessageBus;
+using Mango.MessageBus.AzureMessageBus;
+using Mango.MessageBus.RabbitMQExchange;
 using Mango.OrderAPI.Data;
 using Mango.OrderAPI.Models;
 using Mango.OrderAPI.Models.Dto;
@@ -21,10 +22,13 @@ namespace Mango.OrderAPI.Controllers
         private ResponseDto _response;
         private IMapper _mapper;
         private IProductService _productService;
-        private readonly IMessageBus _messageBus;
+       // private readonly IMessageBus _messageBus;
+       private readonly IRabbitMQExchangeSender _messageBus;
         private readonly IConfiguration _configuration;
         public OrderAPIController(ApplicationDbContext db, IMapper mapper, IProductService productService,
-             IMessageBus messageBus, IConfiguration configuration)
+             //IMessageBus messageBus, 
+             IRabbitMQExchangeSender messageBus,
+             IConfiguration configuration)
         {
             _db = db;
             _mapper = mapper;
@@ -120,9 +124,13 @@ namespace Mango.OrderAPI.Controllers
                     await _db.SaveChangesAsync();
                     _response.Result = _mapper.Map<OrderHeaderDto>(orderHeader);
 
-
+                    #region   Publish the order confirmation message to the Topic Name Then there will be Multiple Subscription
                     string topicName = _configuration.GetValue<string>("TopicAndQueueNames:OrderCreatedTopic");
-                    await _messageBus.PublishMessage(topicName, _response.Result);
+                    //await _messageBus.PublishMessage(topicName, _response.Result);
+                    #endregion
+                    // RabbitMQ Exchange Sender
+                    _messageBus.SendMessage(_response.Result,topicName);
+
 
                 }
                 else

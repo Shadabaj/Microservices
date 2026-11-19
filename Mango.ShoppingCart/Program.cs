@@ -1,4 +1,6 @@
 using Mango.MessageBus;
+using Mango.MessageBus.AzureMessageBus;
+using Mango.MessageBus.RabbitMQSender;
 using Mango.Serives.Shared.Extensions;
 using Mango.ShoppingCartAPI.Data;
 using Mango.ShoppingCartAPI.Models;
@@ -26,9 +28,13 @@ builder.Services.AddAutoMapper(o =>
     o.CreateMap<CartDetails, CartDetailsDto>().ReverseMap();
 });
 builder.Services.AddScoped<IProductService, ProductService>();
-var serviceBusConnectionString = builder.Configuration["ServiceBusConnectionString"]
-    ?? throw new InvalidOperationException("ServiceBusConnectionString is not configured");
-builder.Services.AddScoped<IMessageBus>(_ => new MessageBus(serviceBusConnectionString));
+#region Azure Service Bus
+//var serviceBusConnectionString = builder.Configuration["ServiceBusConnectionString"] ?? throw new InvalidOperationException("ServiceBusConnectionString is not configured");
+//builder.Services.AddScoped<IMessageBus>(_ => new MessageBus(serviceBusConnectionString));
+#endregion
+#region RabbitMQ
+builder.Services.AddScoped<IRabbitMQExchangeSender>(_ => new RabbitMQAuthMessageSender(builder.Configuration.GetSection("RabbitMQ")));
+#endregion
 builder.Services.AddScoped<ICouponService, CouponService>();
 
 builder.Services.AddHttpClient("Product", 

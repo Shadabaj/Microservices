@@ -1,4 +1,7 @@
 using Mango.MessageBus;
+using Mango.MessageBus.AzureMessageBus;
+using Mango.MessageBus.RabbitMQExchange;
+using Mango.MessageBus.RabbitMQExhange;
 using Mango.OrderAPI.Data;
 using Mango.OrderAPI.Models;
 using Mango.OrderAPI.Models.Dto;
@@ -32,13 +35,13 @@ builder.Services.AddAutoMapper(o =>
     o.CreateMap<OrderDetailsDto, CartDetailsDto>();
 });
 builder.Services.AddScoped<IProductService, ProductService>();
-var serviceBusConnectionString = builder.Configuration["ServiceBusConnectionString"]
-    ?? throw new InvalidOperationException("ServiceBusConnectionString is not configured");
-builder.Services.AddScoped<IMessageBus>(_ => new MessageBus(serviceBusConnectionString));
+// Add Azure Service Bus or Toppic Message Sender
+//var serviceBusConnectionString = builder.Configuration["ServiceBusConnectionString"] ?? throw new InvalidOperationException("ServiceBusConnectionString is not configured");
+//builder.Services.AddScoped<IMessageBus>(_ => new MessageBus(serviceBusConnectionString));
+//Rabbit MQ Message Sender
+builder.Services.AddScoped<IRabbitMQExchangeSender>(_=> new RabbitMQExchangeSender(builder.Configuration.GetSection("RabbitMQ")));
 
-
-builder.Services.AddHttpClient("Product",
-    u => u.BaseAddress = new Uri(builder.Configuration["ServiceUrls:ProductAPI"]));
+builder.Services.AddHttpClient("Product",u => u.BaseAddress = new Uri(builder.Configuration["ServiceUrls:ProductAPI"]));
 
 
 builder.AddJwtAuthentication();

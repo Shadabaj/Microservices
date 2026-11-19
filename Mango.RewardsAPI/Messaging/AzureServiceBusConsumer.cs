@@ -23,12 +23,9 @@ namespace Mango.RewardsAPI.Messaging
             _configuration = configuration;
             _logger = logger;
             _rewardService = rewardService;
-            serviceBusConnectionString = _configuration.GetValue<string>("ServiceBusConnectionString")
-                ?? throw new InvalidOperationException("Missing configuration value: ServiceBusConnectionString");
-            orderCreatedTopic = _configuration.GetValue<string>("TopicAndQueueNames:OrderCreatedTopic")
-               ?? throw new InvalidOperationException("Missing configuration value: OrderCreatedTopic");
-            orderCreatedRewardSubscription = _configuration.GetValue<string>("TopicAndQueueNames:OrderCreatedRewardsSubscription")
-                ?? throw new InvalidOperationException("Missing configuration value: OrderCreatedRewardsSubscription");
+            serviceBusConnectionString = _configuration.GetValue<string>("ServiceBusConnectionString") ?? throw new InvalidOperationException("Missing configuration value: ServiceBusConnectionString");
+            orderCreatedTopic = _configuration.GetValue<string>("TopicAndQueueNames:OrderCreatedTopic")?? throw new InvalidOperationException("Missing configuration value: OrderCreatedTopic");
+            orderCreatedRewardSubscription = _configuration.GetValue<string>("TopicAndQueueNames:OrderCreatedRewardsSubscription")?? throw new InvalidOperationException("Missing configuration value: OrderCreatedRewardsSubscription");
 
             var client = new ServiceBusClient(serviceBusConnectionString);
             _rewardsProcessor = client.CreateProcessor(orderCreatedTopic, orderCreatedRewardSubscription, new ServiceBusProcessorOptions
