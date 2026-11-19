@@ -1,0 +1,37 @@
+Mango.OrderAPI/appsettings.json
+  s_e7a5e0400b7f6a::t_f5d9762620275c 32
+  s_e7a5e0400b7f6a::t_8122cacb479c24 29-31
+  s_e7a5e0400b7f6a::t_453784360c4486 33-34
+Mango.RewardsAPI/Messaging/RabbitMQRewardConsumser.cs
+  s_e7a5e0400b7f6a::t_cf7aeaecb196d4 48
+  s_e7a5e0400b7f6a::t_c58e41da7d545c 45-47
+  s_e7a5e0400b7f6a::t_3f0fa5c1760390 49-51
+Mango.EmailAPI/Messaging/RabbitMQAuthConsumser.cs
+  s_e7a5e0400b7f6a::t_a87c9134389365 17
+Mango.MessageBus/RabbitMQExchange/RabbitMQExchangeSender.cs.cs
+  s_e7a5e0400b7f6a::t_eea050f1993df3 47-48
+  s_e7a5e0400b7f6a::t_cb437e14b65f87 68
+  s_e7a5e0400b7f6a::t_12418f2417478f 44-46
+  s_e7a5e0400b7f6a::t_b05a7d7f37c0af 49-51,65-67
+  s_e7a5e0400b7f6a::t_78da9234f2fdda 69-71
+Mango.EmailAPI/Messaging/RabbitMQOrderConsumser.cs
+  s_e7a5e0400b7f6a::t_d238fbd5cef923 51
+  s_e7a5e0400b7f6a::t_c20fa561dd3c18 48-50
+  s_e7a5e0400b7f6a::t_a5f55a48f6ad66 52-54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d908f9d29f81ee72adac82feedcbe5df3bdff839",
+  "prompts": {},
+  "sessions": {
+    "s_e7a5e0400b7f6a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "fa847233-7cea-4e69-89cc-7dd4b43864ae",
+        "model": "auto-smart"
+      },
+      "human_author": "shadabaj <shadabansari.iyc@gmail.com>"
+    }
+  }
+}
